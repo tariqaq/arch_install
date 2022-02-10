@@ -1,5 +1,6 @@
 #!/bin/bash
-curl -sL https://git.io/J1M42 > /etc/pacman.conf
+curl -sL bit.ly/installpacmanconf > /etc/pacman.conf
+curl -sL biy.ly/installmirrorlist > /etc/pacman.d/mirrorlist
 pacman -Sy --noconfirm dialog
 
 #################
@@ -250,7 +251,7 @@ clear
 printf "beginning with Arch installation\n"
 sleep 5
 
-pacstrap /mnt base linux linux-firmware base-devel vim networkmanager git man bash iwd
+pacstrap /mnt base linux-zen linux-zen-headers linux-firmware base-devel vim nano networkmanager git man bash iwd
 
 #configure the system
 printf "setting fstab\n"
@@ -295,8 +296,8 @@ echo $hostname > /etc/hostname
 sed -i "/localhost/s/$/ $hostname/" /etc/hosts
 echo "Installing wifi packages"
 pacman --noconfirm -S iw wpa_supplicant dialog wpa_actiond sudo
-echo "Generating initramfs"
-sed -i 's/^HOOKS.*/HOOKS="base udev autodetect modconf block filesystems keyboard fsck"/' /etc/mkinitcpio.conf
+echo "Generating initramfs(not editing conf)"
+#sed -i 's/^HOOKS.*/HOOKS="base udev autodetect modconf block filesystems keyboard fsck"/' /etc/mkinitcpio.conf
 echo "Setting root password"
 echo "root:${password}" | chpasswd
 printf "setting the hosts file\n"
@@ -304,7 +305,8 @@ echo "127.0.0.1    localhost \n" >> /etc/hosts
 echo "::1    localhost \n" >> /etc/hosts
 echo "127.0.1.1    ${hostname}.localdomain    ${hostname}" >> /etc/hosts
 systemctl enable NetworkManager
-mkinitcpio -p linux
+mkinitcpio -P
+#mkinitcpio -p linux
 EOF
 
 
@@ -325,6 +327,13 @@ EOF
 #############################
 #### Install boot loader ####
 #############################
+#    curl -sL https://github.com/BennyOe/arch_install/blob/main/xenlism-grub-arch-2k.tar.xz?raw=true > /tmp/grubtheme.tar.xz
+#    tar xvf /tmp/grubtheme.tar.xz --directory /tmp
+#    chmod +x /tmp/xenlism-grub-arch-2k/install.sh
+#    cd /tmp/xenlism-grub-arch-2k/
+#    source ./install.sh    
+#    rm -rf /tmp/xenlism-grub-arch-2k
+#############################
 clear
 printf "Installing Grub boot loader\n"
 sleep 5
@@ -337,13 +346,7 @@ if [ $bootmode == "efi" ]; then
     grub-install --target=x86_64-efi --bootloader-id=grub_uefi --recheck
 
     clear
-    printf "setting grub theme...\n"
-    curl -sL https://github.com/BennyOe/arch_install/blob/main/xenlism-grub-arch-2k.tar.xz?raw=true > /tmp/grubtheme.tar.xz
-    tar xvf /tmp/grubtheme.tar.xz --directory /tmp
-    chmod +x /tmp/xenlism-grub-arch-2k/install.sh
-    cd /tmp/xenlism-grub-arch-2k/
-    source ./install.sh    
-    rm -rf /tmp/xenlism-grub-arch-2k
+    printf "not setting grub theme...\n"
     grub-mkconfig -o /boot/grub/grub.cfg
 EOF
 else
