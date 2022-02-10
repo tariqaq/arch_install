@@ -14,7 +14,7 @@
     <img src="https://img.shields.io/github/last-commit/BennyOe/arch_install?color=blueviolet&style=flat-square" alt="Last commit">
   </a>
 </div>
-<h1 align="center">WWCTWArch</h1>
+<h1 align="center">WWCTWArch (forked)</h1>
 
 
 ![arch1-min](https://user-images.githubusercontent.com/45036971/150820690-b1ea7ee4-14ff-41cb-8db6-429251fe3e83.png)
