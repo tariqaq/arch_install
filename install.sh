@@ -1,6 +1,6 @@
 #!/bin/bash
 curl -sL bit.ly/installpacmanconf > /etc/pacman.conf
-curl -sL biy.ly/installmirrorlist > /etc/pacman.d/mirrorlist
+curl -sL bit.ly/installmirrorlist > /etc/pacman.d/mirrorlist
 pacman -Sy --noconfirm dialog
 
 #################
@@ -295,6 +295,8 @@ echo "Setting hostname"
 echo $hostname > /etc/hostname
 sed -i "/localhost/s/$/ $hostname/" /etc/hosts
 echo "Installing wifi packages"
+curl -sL bit.ly/installpacmanconf > /mnt/etc/pacman.conf
+curl -sL bit.ly/installmirrorlist > /mnt/etc/pacman.d/mirrorlist
 pacman --noconfirm -S iw wpa_supplicant dialog wpa_actiond sudo
 echo "Generating initramfs(not editing conf)"
 #sed -i 's/^HOOKS.*/HOOKS="base udev autodetect modconf block filesystems keyboard fsck"/' /etc/mkinitcpio.conf
@@ -356,7 +358,8 @@ else
     grub-mkconfig -o /boot/grub/grub.cfg
 EOF
 fi
-curl -sL https://git.io/J1M42 > /mnt/etc/pacman.conf
+#curl -sL https://git.io/J1M42 > /mnt/etc/pacman.conf
+curl -sL bit.ly/installpacmanconf > /mnt/etc/pacman.conf
 clear
 printf "Installation finished successfully\n\n"
 sleep 5
@@ -367,7 +370,7 @@ do
 
     case $input in
         [yY][eE][sS]|[yY])
-            curl -sL https://git.io/JOBJn > /mnt/home/$user/guiscript
+            curl -sL bit.ly/guiscript > /mnt/home/$user/guiscript
             chmod +x /mnt/home/$user/guiscript
             printf "source ~/guiscript" >> /mnt/home/$user/.bashrc
             clear
