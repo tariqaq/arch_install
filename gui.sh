@@ -279,7 +279,8 @@ clear
 printf "installing DWMBLOCKS\n"
 sleep 2
 cd ~/$appfolder
-git clone https://github.com/BennyOe/dwmblocks.git
+#git clone https://github.com/BennyOe/dwmblocks.git
+git clone https://github.com/tariqaq/dwmblocks.git
 cd dwmblocks
 sudo make clean install
 printf "dwmblocks &\nnm-applet&\npa-applet&\npicom&\nnitrogen --restore&\n" >> ~/.dwm/autostart.sh
