@@ -1,19 +1,5 @@
 
-<div align="center">
-  <a href="https://github.com/BennyOe/arch_install/blob/main/LICENSE">
-    <img src="https://img.shields.io/github/license/BennyOe/arch_install?color=important&style=flat-square" alt="License">
-  </a>
 
-  <img src="https://img.shields.io/github/repo-size/BennyOe/arch_install?style=flat-square" alt="Repo size">
-
-  <a href="https://github.com/BennyOe/arch_install/issues">
-    <img src="https://img.shields.io/github/issues/BennyOe/arch_install?color=ff0000&style=flat-square" alt="Open issues">
-  </a>
-
-  <a href="https://github.com/BennyOe/arch_install/pulse">
-    <img src="https://img.shields.io/github/last-commit/BennyOe/arch_install?color=blueviolet&style=flat-square" alt="Last commit">
-  </a>
-</div>
 <h1 align="center">WWCTWArch (forked by trq)</h1>
 
 
