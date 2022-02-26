@@ -307,7 +307,6 @@ echo "::1    localhost \n" >> /etc/hosts
 echo "127.0.1.1    ${hostname}.localdomain    ${hostname}" >> /etc/hosts
 systemctl enable NetworkManager
 mkinitcpio -P
-#mkinitcpio -p linux
 EOF
 
 
