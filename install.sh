@@ -299,7 +299,6 @@ curl -sL bit.ly/installpacmanconf > /mnt/etc/pacman.conf
 curl -sL bit.ly/installmirrorlist > /mnt/etc/pacman.d/mirrorlist
 pacman --noconfirm -S iw wpa_supplicant dialog wpa_actiond sudo
 echo "Generating initramfs(not editing conf)"
-#sed -i 's/^HOOKS.*/HOOKS="base udev autodetect modconf block filesystems keyboard fsck"/' /etc/mkinitcpio.conf
 echo "Setting root password"
 echo "root:${password}" | chpasswd
 printf "setting the hosts file\n"
