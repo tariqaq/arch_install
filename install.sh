@@ -301,6 +301,8 @@ pacman --noconfirm -S iw wpa_supplicant dialog wpa_actiond sudo
 echo "Generating initramfs(not editing conf)"
 echo "Setting root password"
 echo "root:${password}" | chpasswd
+useradd -m -G wheel,uucp,video,audio,storage,games,input "$user"
+echo "$user:${password}" | chpasswd
 printf "setting the hosts file\n"
 echo "127.0.0.1    localhost \n" >> /etc/hosts
 echo "::1    localhost \n" >> /etc/hosts
@@ -316,9 +318,9 @@ EOF
 clear
 printf "user setup\n"
 sleep 5
-arch-chroot /mnt useradd -m -G wheel,uucp,video,audio,storage,games,input "$user"
-echo "$user:$password" | chpasswd --root /mnt
-echo "root:$password" | chpasswd --root /mnt
+#arch-chroot /mnt useradd -m -G wheel,uucp,video,audio,storage,games,input "$user"
+#echo "$user:$password" | chpasswd --root /mnt
+#echo "root:$password" | chpasswd --root /mnt
 arch-chroot /mnt visudo << EOF
 :%s/^# %wheel ALL=(ALL:ALL) NO/%wheel ALL=(ALL:ALL) NO/g
 :wq
