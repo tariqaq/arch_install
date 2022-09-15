@@ -3,9 +3,9 @@
 <h1 align="center">WWCTWArch (forked by trq)</h1>
 
 
-![arch1-min](https://user-images.githubusercontent.com/45036971/150820690-b1ea7ee4-14ff-41cb-8db6-429251fe3e83.png)
+<!---![arch1-min](https://user-images.githubusercontent.com/45036971/150820690-b1ea7ee4-14ff-41cb-8db6-429251fe3e83.png)--->
 
-![arch2-min](https://user-images.githubusercontent.com/45036971/150820747-bfd0a2cf-b778-4e5a-883e-af6fbc6bf19f.png)
+<!---![arch2-min](https://user-images.githubusercontent.com/45036971/150820747-bfd0a2cf-b778-4e5a-883e-af6fbc6bf19f.png)--->
 
 
 
